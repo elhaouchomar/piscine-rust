@@ -8,25 +8,25 @@ pub fn tic_tac_toe(table: [[char; 3]; 3]) -> String {
 }
 
 pub fn diagonals(player: char, table: [[char; 3]; 3]) -> bool {
-    let main = table[0][0] == player && table[1][1] == player && table[2][0] == player;
-    let anti = table[0][2] == player && table[1][1] == player && table[0][2] == player;
+    let main = table[0][0] == player && table[1][1] == player && table[2][2] == player;
+    let anti = table[0][2] == player && table[1][1] == player && table[2][0] == player;
     main || anti
 }
 
 pub fn horizontal(player: char, table: [[char; 3]; 3]) -> bool {
-    for _ in 0..3 {
-        if table[0][0] == player && table[0][1] == player && table[0][2] == player {
+    for i in 0..3 {
+        if table[i][0] == player && table[i][1] == player && table[i][2] == player {
             return true;
         }
     }
-    return false;
+    false
 }
 
 pub fn vertical(player: char, table: [[char; 3]; 3]) -> bool {
-    for _ in 0..3 {
-        if table[0][0] == player && table[1][0] == player && table[2][0] == player {
+    for i in 0..3 {
+        if table[0][i] == player && table[1][i] == player && table[2][i] == player {
             return true;
         }
     }
-    return false;
+    false
 }
