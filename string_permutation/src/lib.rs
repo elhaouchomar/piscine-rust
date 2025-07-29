@@ -10,7 +10,8 @@ pub fn is_permutation(s1: &str, s2: &str) -> bool {
         let mut map = HashMap::new();
 
         for c in s.chars() {
-            *map.entry(c).or_insert(0) + 1;
+            let count = map.entry(c).or_insert(0);
+            *count += 1;
         }
         map
     }
