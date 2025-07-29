@@ -5,26 +5,20 @@ pub fn mean(list: &[i32]) -> f64 {
     sum as f64 / list.len() as f64
 }
 
-pub fn median(list: &[i32]) -> f64 {
-    let mut sorted = list.to_vec();
-    sorted.sort();
+pub fn median(list: &[i32]) -> i32 {
+    let mut sorted = list.to_vec(); 
+    sorted.sort(); 
+
 
     let len = sorted.len();
-    let result = if len % 2 == 1 {
-        sorted[len / 2] as f64
+    if len % 2 == 1 {
+        sorted[len / 2]
     } else {
         let mid1 = sorted[len / 2];
         let mid2 = sorted[len / 2 - 1];
-        (mid1 as f64 + mid2 as f64) / 2.0
-    };
-
-    if result.fract() == 0.0 {
-        result.trunc()
-    } else {
-        result
+        (mid1 + mid2) / 2
     }
 }
-
 
 
 pub fn mode(list: &[i32]) -> i32 {
