@@ -8,13 +8,15 @@ pub fn mean(list: &[i32]) -> f64 {
 pub fn median(list: &[i32]) -> f64 {
     let mut sorted = list.to_vec(); 
     sorted.sort(); 
-    let len = sorted.len();
-    let mid = len / 2;
 
-    if len % 2 == 0 {
-        (sorted[mid - 1] + sorted[mid]) as f64 / 2.0
+
+    let len = sorted.len();
+    if len % 2 == 1 {
+        sorted[len / 2] as f64
     } else {
-        sorted[mid] as f64
+        let mid1 = sorted[len / 2];
+        let mid2 = sorted[len / 2 - 1];
+        (mid1 as f64 + mid2 as f64) / 2.0
     }
 }
 
