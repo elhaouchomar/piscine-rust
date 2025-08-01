@@ -25,6 +25,5 @@ impl One {
             .and_then(|two| two.second_layer.as_ref())
             .and_then(|three| three.third_layer.as_ref())
             .and_then(|four| four.fourth_layer)
-
     }
 }
