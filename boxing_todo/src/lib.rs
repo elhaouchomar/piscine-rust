@@ -1,5 +1,6 @@
 mod err;
-use err::{ParseErr, ReadErr};
+// use err::{ParseErr, ReadErr};
+pub use err::{ParseErr, ReadErr};
 
 use std::error::Error;
 use std::fs;
