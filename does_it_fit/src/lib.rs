@@ -74,7 +74,7 @@ pub fn volume_fit(
     times: usize,
     (a, b, c): (usize, usize, usize),
 ) -> bool {
-    let container_volume = x * y;
+    let container_volume = x * y * z;
     let shape_volume = match kind {
         GeometricalVolumes::Cube => cube_volume(a) as f64,
         GeometricalVolumes::Sphere => sphere_volume(a),
