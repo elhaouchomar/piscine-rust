@@ -11,6 +11,4 @@ checksum = "e3f497e87b038c09a155dfd169faa5ec940d0644635555ef6bd464ac20e97397"
 [[package]]
 name = "expected_variable"
 version = "0.1.0"
-dependencies = [
- "edit-distance",
-]
+
