@@ -1,20 +1,72 @@
-use convert_case::{Case, Casing};
-use edit_distance::edit_distance;
+use expected_variable::*;
 
-pub fn expected_variable(compare: &str, expected: &str) -> Option<String> {
-    if !(compare.is_case(Case::Camel) || compare.is_case(Case::Snake)) {
-        return None;
-    }
+#[test]
+fn regular_cases() {
+    assert_eq!(
+        Some("88%".to_owned()),
+        expected_variable("soClose", "so_close")
+    );
+    assert_eq!(
+        Some("73%".to_owned()),
+        expected_variable("lets_try", "lets_try_it")
+    );
+    assert_eq!(
+        Some("64%".to_owned()),
+        expected_variable("GoodJob", "VeryGoodJob")
+    );
+    assert_eq!(
+        Some("67%".to_owned()),
+        expected_variable("BenedictCumberbatch", "BeneficialCucumbersnatch")
+    );
+}
 
-    let expected_len = expected.len();
-    if expected_len == 0 {
-        return None;
-    }
+#[test]
+fn none_cases() {
+    assert_eq!(
+        None,
+        expected_variable("It is simply not a variable case", "gonnaFail")
+    );
 
-    let distance = edit_distance(&compare.to_lowercase(), &expected.to_lowercase());
+    assert_eq!(
+        None,
+        expected_variable("do-not-use-dashes", "do-not-use-dashes")
+    );
 
-    let percentage = (distance * 100) / expected_len;
-    let similarity = if percentage > 100 { 0 } else { 100 - percentage };
+    assert_eq!(
+        None,
+        expected_variable("Not a variable case", "needs to fail")
+    );
 
-    (similarity >= 50).then(|| format!("{similarity}%"))
+    assert_eq!(
+        None,
+        expected_variable("This should be None", "needs to fail")
+    );
+
+    assert_eq!(
+        None,
+        expected_variable("Do not use spaces", "Do not use spaces")
+    );
+}
+
+#[test]
+fn incorrect_cases() {
+    assert_eq!(None, expected_variable("it_is_done", "almost_there"));
+
+    assert_eq!(None, expected_variable("frankenstein", "Dracula"));
+}
+
+#[test]
+fn equal_cases() {
+    assert_eq!(
+        Some("100%".to_owned()),
+        expected_variable("great_variable", "great_variable")
+    );
+    assert_eq!(
+        Some("100%".to_owned()),
+        expected_variable("SpOtON", "SpotOn")
+    );
+    assert_eq!(
+        Some("100%".to_owned()),
+        expected_variable("Another_great_variable", "Another_great_variAble")
+    );
 }
