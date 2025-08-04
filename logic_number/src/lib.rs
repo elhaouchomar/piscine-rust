@@ -1,10 +1,20 @@
-pub fn number_logic(num: u32) -> bool {
-    let mut n = num;
-    let check = n.to_string().len();
-    let mut res = 0;
-    while n > 0 {
-       res += (n % 10) as usize * check;
-       n /= 10;
+pub fn number_logic(mut num: u32) -> bool {
+    let mut temp = num;
+    let mut digits = 0;
+
+    while temp > 0 {
+        digits += 1;
+        temp /= 10;
     }
-    true
+
+    let mut sum = 0;
+    temp = num;
+
+    while temp > 0 {
+        let digit = temp % 10;
+        sum += digit.pow(digits);
+        temp /= 10;
+    }
+
+    sum == num
 }
