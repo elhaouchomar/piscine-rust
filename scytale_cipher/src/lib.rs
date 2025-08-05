@@ -1,7 +1,7 @@
 pub fn scytale_cipher(message: &str, i: usize) -> String {
-    if message.is_empty || i ==0 [
+    if message.is_empty() || i ==0  {
         return String::new();
-    ]
+    }
     let chars: Vec<char> = message.chars().collect();
 
     let mut padded_chars = chars.clone();
