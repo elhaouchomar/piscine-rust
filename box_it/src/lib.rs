@@ -5,8 +5,8 @@ pub fn parse_into_boxed(s: String) -> Vec<Box<u32>> {
         let cleaned = tok.trim_matches(|c| c == 'k' );
         match cleaned.parse::<f32>() {
             Ok(nb) => {
-                let scaled = if has_k  {
-                    (nb * 1000.0) as u32
+                let scaled = if !has_k  {
+                    nb as u32
                 }else {
                      (nb * 1000.0) as u32 
                 };
