@@ -21,19 +21,20 @@ impl GameSession {
         self.p1.1 >= half || self.p2.1 >= half
     }
 
-    pub fn read_winner(&self) -> Option<&(String, u32)> {
-        if !self.is_finished() {
-            return None;
-        }
-
-        if self.p1.1 > self.p2.1 {
-            Some(&self.p1)
-        } else if self.p2.1 > self.p1.1 {
-            Some(&self.p2)
-        } else {
-            None 
-        }
+pub fn read_winner(&self) -> Option<&(String, u32)> {
+    if !self.is_finished() && self.p1.1 == self.p2.1 {
+        return None;
     }
+
+    if self.p1.1 > self.p2.1 {
+        Some(&self.p1)
+    } else if self.p2.1 > self.p1.1 {
+        Some(&self.p2)
+    } else {
+        None
+    }
+}
+
 
     pub fn update_score(&mut self, user_name: &str) {
         if self.is_finished() {
