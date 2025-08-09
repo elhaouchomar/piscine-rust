@@ -15,7 +15,7 @@ impl Tracker {
 
     pub fn set_value(&self, val: &Rc<i32>) {
         let count = Rc::strong_count(val);
-        let percent = ((count as f64 / self.max as f64) * 100.0).round() as i32;
+        let percent = ((count as f64 / self.max as f64) * 100.0).floor() as i32;
 
         if count > self.max {
             self.messages
@@ -36,7 +36,7 @@ impl Tracker {
 
     pub fn peek(&self, val: &Rc<i32>) {
         let count = Rc::strong_count(val);
-        let percent = ((count as f64 / self.max as f64) * 100.0).round() as i32;
+        let percent = ((count as f64 / self.max as f64) * 100.0).floor() as i32;
         self.messages.borrow_mut().push(format!(
             "Info: This value would use {}% of your quota",
             percent
