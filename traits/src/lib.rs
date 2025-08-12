@@ -19,7 +19,7 @@ pub struct Meat {
 }
 
 impl Player {
-    fn eat<T: Food>(&mut self, food: T) {
+    pub fn eat<T: Food>(&mut self, food: T) {
         self.strength += food.gives();
     }
 }
