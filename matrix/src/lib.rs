@@ -18,7 +18,7 @@ impl Scalar for f64 {
     fn one() -> Self { 1.0 }
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct Matrix<T>(pub Vec<Vec<T>>);
 
 impl<T: Scalar + Clone> Matrix<T> {
