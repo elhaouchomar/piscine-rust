@@ -1,4 +1,4 @@
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Debug, PartialEq)]
 pub struct Collatz {
     pub v: u64,
 }
@@ -10,13 +10,13 @@ impl Collatz {
 }
 
 impl Iterator for Collatz {
-    type Item = u64;
+    type Item = Collatz;
 
-    fn next(&mut self) -> Option<u64> {
+    fn next(&mut self) -> Option<Collatz> {
         if self.v <= 1 {
             return None;
         }
-        let current = self.v;
+        let current = *self;
         if self.v % 2 == 0 {
             self.v /= 2;
         } else {
