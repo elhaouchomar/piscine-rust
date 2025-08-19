@@ -4,8 +4,8 @@ pub struct Store {
 }
 
 impl Store {
-    pub fn new(products: Vec<(String, f32)>) -> Store {
-        Store { products }
+    pub fn new(products: Vec<(String, f32)>) -> Self {
+        Self { products }
     }
 }
 
@@ -16,47 +16,31 @@ pub struct Cart {
 }
 
 impl Cart {
-    pub fn new() -> Cart {
-        Cart {
-            items: Vec::new(),
-            receipt: Vec::new(),
-        }
+    pub fn new() -> Self {
+        Self { items: vec![], receipt: vec![] }
     }
 
-    pub fn insert_item(&mut self, s: &Store, ele: String) {
-        if let Some((name, price)) = s.products.iter().find(|(n, _)| *n == ele) {
-            self.items.push((name.clone(), *price));
+    pub fn insert_item(&mut self, s: &Store, name: String) {
+        if let Some((_, price)) = s.products.iter().find(|(n, _)| *n == name) {
+            self.items.push((name, *price));
         }
     }
 
     pub fn generate_receipt(&mut self) -> Vec<f32> {
-    let prices: Vec<f32> = self.items.iter().map(|(_, p)| *p).collect();
-    let mut receipt: Vec<f32> = Vec::new();
+        let mut prices: Vec<f32> = self.items.iter().map(|(_, p)| *p).collect();
+        prices.sort_by(|a, b| a.partial_cmp(b).unwrap());
 
-    for chunk in prices.chunks(3) {
-        let mut group: Vec<f32> = chunk.to_vec();
-        if group.len() == 3 {
-            let min_price = group.iter().cloned().fold(f32::INFINITY, f32::min);
-            let sum: f32 = group.iter().sum();
-            let new_sum = sum - min_price;
-            let discount = new_sum / sum;
-            group = group.iter().map(|p| (p * discount * 100.0).round() / 100.0).collect();
+        let free_count = self.items.len() / 3;
+        let paid: Vec<f32> = prices[free_count..].to_vec();
+        let total_paid: f32 = paid.iter().sum();
+        let total_original: f32 = prices.iter().sum();
+        let ratio = total_paid / total_original;
 
-            let expected = (new_sum * 100.0).round() as i32;
-            let actual: i32 = group.iter().map(|x| (x * 100.0).round() as i32).sum();
-            let diff = expected - actual;
-            if diff != 0 {
-                if let Some(last) = group.last_mut() {
-                    *last += diff as f32 / 100.0;
-                }
-            }
-        }
-        receipt.extend(group);
+        self.receipt = prices.iter().map(|p| round_two(p * ratio)).collect();
+        self.receipt.clone()
     }
-
-    receipt.sort_by(|a, b| a.partial_cmp(b).unwrap());
-    self.receipt = receipt.clone();
-    receipt
 }
 
+fn round_two(n: f32) -> f32 {
+    (n * 100.0).round() / 100.0
 }
