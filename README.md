@@ -1,27 +1,27 @@
 # piscine-rust
 
 <!-- consolidated-projects:start -->
-## Projects
+## Exercises and standalone projects
 
-| Project | Folder |
+Original piscine exercises remain in this repository. Standalone projects live in their own repositories with their commit histories.
+
+| Project | Location |
 | --- | --- |
-| drawing | [Open project](./drawing/) |
-| chaikin | [Open project](./chaikin/) |
-| road_intersection | [Open project](./road_intersection/) |
-| variables | No separate repository found |
-| memory | No separate repository found |
-| data | No separate repository found |
-| Checkpoint 01-rust | No separate repository found |
-| errors | No separate repository found |
-| crates | No separate repository found |
-| patterns | No separate repository found |
-| Checkpoint 02-rust | No separate repository found |
-| pointers | No separate repository found |
-| traits | [Open project](./traits/) |
-| Checkpoint 03-rust | No separate repository found |
-| lifetimes | [Open project](./lifetimes/) |
-| features | No separate repository found |
-| Final Checkpoint-rust | No separate repository found |
-
-Imported projects retain their original Git history. Standalone repositories remain available.
+| drawing | [Standalone repository](https://github.com/elhaouchomar/drawing) |
+| chaikin | [Standalone repository](https://github.com/elhaouchomar/chaikin) |
+| road_intersection | [Standalone repository](https://github.com/elhaouchomar/road_intersection) |
+| variables | Existing exercise files retained; no separate repository found |
+| memory | Existing exercise files retained; no separate repository found |
+| data | Existing exercise files retained; no separate repository found |
+| Checkpoint 01-rust | Existing exercise files retained; no separate repository found |
+| errors | Existing exercise files retained; no separate repository found |
+| crates | Existing exercise files retained; no separate repository found |
+| patterns | Existing exercise files retained; no separate repository found |
+| Checkpoint 02-rust | Existing exercise files retained; no separate repository found |
+| pointers | Existing exercise files retained; no separate repository found |
+| traits | [Exercises](./traits/) |
+| Checkpoint 03-rust | Existing exercise files retained; no separate repository found |
+| lifetimes | [Exercises](./lifetimes/) |
+| features | Existing exercise files retained; no separate repository found |
+| Final Checkpoint-rust | Existing exercise files retained; no separate repository found |
 <!-- consolidated-projects:end -->

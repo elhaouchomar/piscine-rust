@@ -1,21 +1,24 @@
 [
   {
     "name": "drawing",
-    "status": "imported",
+    "status": "standalone repository",
     "branch": "main",
-    "commit": "d2f9f9db445dacb167c9747b773d0f2da830bbb7"
+    "commit": "d2f9f9db445dacb167c9747b773d0f2da830bbb7",
+    "url": "https://github.com/elhaouchomar/drawing"
   },
   {
     "name": "chaikin",
-    "status": "imported",
+    "status": "standalone repository",
     "branch": "main",
-    "commit": "e5276f5e5905844321b0f40cb0e92e5a6608c773"
+    "commit": "e5276f5e5905844321b0f40cb0e92e5a6608c773",
+    "url": "https://github.com/elhaouchomar/chaikin"
   },
   {
     "name": "road_intersection",
-    "status": "imported",
+    "status": "standalone repository",
     "branch": "main",
-    "commit": "44bc403a0cfa9dad325ba20787c56884b82d2c93"
+    "commit": "44bc403a0cfa9dad325ba20787c56884b82d2c93",
+    "url": "https://github.com/elhaouchomar/road_intersection"
   },
   {
     "name": "variables",
