@@ -1,0 +1,78 @@
+[
+  {
+    "name": "drawing",
+    "status": "imported",
+    "branch": "main",
+    "commit": "d2f9f9db445dacb167c9747b773d0f2da830bbb7"
+  },
+  {
+    "name": "chaikin",
+    "status": "imported",
+    "branch": "main",
+    "commit": "e5276f5e5905844321b0f40cb0e92e5a6608c773"
+  },
+  {
+    "name": "road_intersection",
+    "status": "imported",
+    "branch": "main",
+    "commit": "44bc403a0cfa9dad325ba20787c56884b82d2c93"
+  },
+  {
+    "name": "variables",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "memory",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "data",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "Checkpoint 01-rust",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "errors",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "crates",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "patterns",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "Checkpoint 02-rust",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "pointers",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "traits",
+    "status": "already inside",
+    "folder": "traits"
+  },
+  {
+    "name": "Checkpoint 03-rust",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "lifetimes",
+    "status": "already inside",
+    "folder": "lifetimes"
+  },
+  {
+    "name": "features",
+    "status": "no standalone repository found"
+  },
+  {
+    "name": "Final Checkpoint-rust",
+    "status": "no standalone repository found"
+  }
+]
